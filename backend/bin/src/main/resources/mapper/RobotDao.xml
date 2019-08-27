@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.RobotDao">
+	<insert id="insertRobot"
+		parameterType="com.alibaba.robot.web.manage.pojo.Robot">
+		insert into robot(name,address,model,state,uniqueId) values( #{name} ,
+		#{address} , #{model} , #{state} , #{uniqueId} )
+	</insert>
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.Robot">
+		select * from robot
+	</select>
+
+	<select id="selectByUniqueId" parameterType="String"
+		resultType="com.alibaba.robot.web.manage.pojo.Robot">
+		select * from robot where id = #{id}
+	</select>
+
+	<delete id="deleteOneById" parameterType="Integer">
+		delete from robot where id = #{id}
+	</delete>
+</mapper>
+

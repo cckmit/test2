@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.alibaba.robot.web.manage.mapper.RobotCountDao">
+	<select id="selectByRobotUniqueId" parameterType="Integer" resultType="com.alibaba.robot.web.manage.pojo.RobotCount">
+		select * from robotcount where robot_uniqueId = #{robot_uniqueId}
+	</select>
+	
+	<update id="updateRobotTransportData" parameterType="com.alibaba.robot.web.manage.pojo.RobotCount">
+		update robotcount set runDistanceTotal = #{runDistanceTotal}, transportTotal = #{transportTotal} where robot_uniqueId = #{robot_uniqueId}
+	</update>
+</mapper>

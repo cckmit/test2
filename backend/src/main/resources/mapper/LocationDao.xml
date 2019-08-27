@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.LocationDao">
+	<insert id="insertLocation"
+		parameterType="com.alibaba.robot.web.manage.pojo.Location" keyProperty="id" useGeneratedKeys="true">
+		<!-- <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey> -->
+		insert into location(floor,name,w,x,y,z) values( #{floor} ,#{name} , #{w}, #{x} ,#{y} ,#{z})
+	</insert>
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.Location">
+		select * from location
+	</select>
+
+	<select id="selectById" parameterType="Integer"
+		resultType="com.alibaba.robot.web.manage.pojo.Location">
+		select * from location where id = #{id}
+	</select>
+
+	<delete id="deleteOneById" parameterType="Integer">
+		delete from location where id = #{id}
+	</delete>
+	
+	<update id="updateLocation" parameterType="com.alibaba.robot.web.manage.pojo.Location">
+		update location set floor = #{floor}, name = #{name}, w = #{w}, x = #{x}, y = #{y}, z = #{z} where id = #{id}
+	</update>
+</mapper>
+

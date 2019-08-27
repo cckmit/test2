@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.RobotDao">
+	<insert id="insertRobot"
+		parameterType="com.alibaba.robot.web.manage.pojo.Robot">
+		insert into robot(name,address,model,firmware,version,status,uniqueId,robotType) values( #{name} ,
+		#{address} , #{model} , #{firmware} , #{version} , #{status} , #{uniqueId} , #{robotType} )
+	</insert>
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.Robot">
+		select * from robot
+	</select>
+
+	<select id="selectById" parameterType="Integer"
+		resultType="com.alibaba.robot.web.manage.pojo.Robot">
+		select * from robot where id = #{id}
+	</select>
+
+	<delete id="deleteOneById" parameterType="Integer">
+		delete from robot where id = #{id}
+	</delete>
+	
+	<select id="selectByUniqueId" parameterType="String"
+		resultType="com.alibaba.robot.web.manage.pojo.Robot">
+		select * from robot where uniqueId = #{uniqueId}
+	</select>
+	
+	<select id="selectByModel" parameterType="String"
+		resultType="com.alibaba.robot.web.manage.pojo.Robot">
+		select * from robot where model = #{model}
+	</select>
+	
+
+	<delete id="deleteOneByUniqueId" parameterType="String">
+		delete robot,attributedefinition 
+		from robot left join attributedefinition on robot.uniqueId=attributedefinition.robot_uniqueId 
+		where uniqueId = #{uniqueId}
+	</delete>
+	
+	<update id="updateByUniqueId" parameterType="com.alibaba.robot.web.manage.pojo.Robot">
+		update robot set name = #{name}, address = #{address}, model = #{model}, firmware = #{firmware}, 
+					version = #{version}, status = #{status}, robotType = #{robotType} where uniqueId = #{uniqueId}
+	</update>
+</mapper>
+

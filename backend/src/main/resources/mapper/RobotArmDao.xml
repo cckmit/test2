@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.alibaba.robot.web.manage.mapper.RobotArmDao">
+	<select id="selectArmById" parameterType="Integer" resultType="com.alibaba.robot.web.manage.pojo.RobotArm">
+		select * from robotarm where id = #{id}
+	</select>
+	
+	<update id="updateRobotArmData" parameterType="com.alibaba.robot.web.manage.pojo.RobotArm">
+		update robotarm set loadCounts = #{loadCounts}, loadTotal = #{loadTotal} where id = #{id}
+	</update>
+</mapper>

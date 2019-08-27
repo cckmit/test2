@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.ServiceStatusDao">
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.ServiceStatus">
+		select * from servicestatus
+	</select>
+
+	<update id="updateStatus" parameterType="com.alibaba.robot.web.manage.pojo.ServiceStatus">
+		update servicestatus set out_of_service = #{out_of_service} where id = 1
+	</update>
+	
+</mapper>
+

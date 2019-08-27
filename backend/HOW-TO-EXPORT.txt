@@ -1,0 +1,2 @@
+mvn -U -X -e clean package -Dmaven.test.skip=true -DskipTests=true
+mvn -U -X -e clean package -Dmaven.test.skip=true -DskipTests=true

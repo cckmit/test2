@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.OrderStatusDao">
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.OrderStatus">
+		select * from orderstatus
+	</select>
+
+	<update id="changeByOrderId" parameterType="com.alibaba.robot.web.manage.pojo.OrderStatus">
+		update robot set status = #{status} where orders_id = #{orders_id}
+	</update>
+	
+</mapper>
+

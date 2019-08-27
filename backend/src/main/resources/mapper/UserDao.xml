@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.UserDao">
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.User">
+		select * from user
+	</select>
+
+	<select id="selectPasswordByUserName" parameterType="String" resultType="String">
+		select password from user where name = #{name}
+	</select>
+	
+	<select id="selectUserById" resultType="com.alibaba.robot.web.manage.pojo.User">
+		select * from user where id = #{id}
+	</select>
+	
+	<select id="selectTokenById" parameterType="Integer" resultType="String">
+		select token from user where id = #{id}
+	</select>
+	
+	<select id="selectUserByName" parameterType="String" resultType="com.alibaba.robot.web.manage.pojo.User">
+		select * from user where name = #{name}
+	</select>
+	
+</mapper>
+

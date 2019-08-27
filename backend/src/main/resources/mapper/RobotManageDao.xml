@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.RobotManageDao">
+	<insert id="insertRobotManage"
+		parameterType="com.alibaba.robot.web.manage.pojo.RobotManage">
+		insert into robotmanage(robotUniqueId,warehouseCode,robotCoordinate,taskType,taskId,taskState,robotEnergy,robotCapacity) values( #{robotUniqueId} , #{warehouseCode} , #{robotCoordinate} , #{taskType} , #{taskId} , #{taskState} , #{robotEnergy} , #{robotCapacity} )
+	</insert>
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.RobotManage">
+		select * from robotmanage
+	</select>
+	
+	<delete id="deleteRobotManageOne" parameterType="com.alibaba.robot.web.manage.pojo.RobotManage">
+		delete from robotmanage where robotUniqueId = #{robotUniqueId,jdbcType=VARCHAR} and warehouseCode = #{warehouseCode,jdbcType=VARCHAR}
+		
+	</delete>
+	
+	<select id="selectByRobotUniqueIdAndWaercode" parameterType="com.alibaba.robot.web.manage.pojo.RobotManage" resultType="com.alibaba.robot.web.manage.pojo.RobotManage">
+		select * from robotmanage where robotUniqueId = #{robotUniqueId,jdbcType=VARCHAR} and warehouseCode = #{warehouseCode,jdbcType=VARCHAR}
+	</select>
+
+</mapper>
+

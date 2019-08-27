@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.alibaba.robot.web.manage.mapper.DrinkDao">
+
+	<select id="selectAll" resultType="com.alibaba.robot.web.manage.pojo.Drink">
+		select * from drink
+	</select>
+
+	<update id="updateDrinkAmount" parameterType="com.alibaba.robot.web.manage.pojo.Drink">
+		update drink set amount=amount+#{amount} where type = #{type} and storage_type = #{storage_type}
+	</update>
+	
+</mapper>
+
